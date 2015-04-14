@@ -120,6 +120,7 @@ class Render extends AbstractCommon
         $view->setVariable('showPagination', $tableConfig->getShowPagination());
         $view->setVariable('showItemPerPage', $tableConfig->getShowItemPerPage());
         $view->setVariable('showExportToCSV', $tableConfig->getShowExportToCSV());
+        $view->setVariable('pager', $this->getTable()->getSource()->getPaginator());
 
         return $this->getRenderer()->render($view);
     }
@@ -158,6 +159,8 @@ class Render extends AbstractCommon
         $view->setVariable('showPagination', $tableConfig->getShowPagination());
         $view->setVariable('showItemPerPage', $tableConfig->getShowItemPerPage());
         $view->setVariable('showExportToCSV', $tableConfig->getShowExportToCSV());
+        $view->setVariable('pager', $this->getTable()->getSource()->getPaginator());
+        $view->setVariable('tableObject', $this->getTable());
 
         return $this->getRenderer()->render($view);
     }
